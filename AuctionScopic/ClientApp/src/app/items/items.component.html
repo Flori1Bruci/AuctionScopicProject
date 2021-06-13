@@ -1,0 +1,30 @@
+<p>This component demonstrates fetching data from the server.</p>
+
+<p *ngIf="!items"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="items">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Initial Price</th>
+      <th>Available for auction</th>
+      <th>Finish Auction Time</th>
+      <th>Required Increase Amount</th>
+      <th>Is Sold</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of items">
+      <td>{{ item.name }}</td>
+      <td>{{ item.description }}</td>
+      <td>{{ item.initialPrice }}</td>
+      <td>{{ item.availableForAuction ? 'Yes' : 'No' }}</td>
+      <td>{{ item.finishAuctionTime | date }}</td>
+      <td>{{ item.requiredIncreaseAmount }}</td>
+      <td>{{ item.isSold ? 'Yes' : 'No'}}</td>
+      <td><a [routerLink]="['/item/get', item.id]">Details</a></td>
+    </tr>
+  </tbody>
+</table>
