@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace AuctionScopic.Extensions
 {
+
+    /// <summary>
+    /// use this class to handle error throwing
+    /// </summary>
     public class Result
     {
         public bool Success { get; private set; }

@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace AuctionScopic.Extensions
 {
+    /// <summary>
+    /// Extension to get the userId
+    /// </summary>
     public static class PrincipalHelpers
     {
         public static Guid? GetUserId(this ClaimsPrincipal principal)

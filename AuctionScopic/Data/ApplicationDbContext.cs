@@ -27,6 +27,24 @@ namespace AuctionScopic.Data
         public DbSet<Bid> Bids { get; set; }
         public DbSet<AutoBid> AutoBids { get; set; }
 
+
+        /// <summary>
+        /// Override this because only SaveChangesAsync is configured to dispatch domainEvents
+        /// </summary>
+        /// <returns></returns>
+
+        public override int SaveChanges()
+        {
+            throw new NotImplementedException();
+        }
+
+
+
+        /// <summary>
+        /// override SaveChangesAsync to dispatch domain events 
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             var result = await base.SaveChangesAsync(cancellationToken);
